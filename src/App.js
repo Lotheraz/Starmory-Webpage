@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RockTypesEnum, rockValues } from "./rockCalculations";
+//import "./App.css";
 
 function App() {
   // State variables for ore data and calculations
@@ -88,6 +89,7 @@ function App() {
       setTotalScuValue(Math.round(scuValue));
     }
   };
+
   const addWorkOrder = () => {
     const currentTime = new Date().toLocaleString();
     const orderName = workOrderName
@@ -138,7 +140,6 @@ function App() {
       setNetMassValue(0);
     }
   };
-
   const deleteWorkOrder = (index) => {
     const updatedWorkOrders = [...workOrders];
     updatedWorkOrders.splice(index, 1);
@@ -181,6 +182,7 @@ function App() {
 
     return () => clearInterval(timer);
   }, []);
+
   return (
     <div
       style={{
@@ -190,18 +192,30 @@ function App() {
         minHeight: "100vh",
         padding: "20px",
         fontFamily: "Arial, sans-serif",
-        color: "#fff",
+        color: "white",
       }}
     >
       <header
+        className="page-header"
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           padding: "10px",
           backgroundColor: "rgba(255, 110, 0, 0.8)",
-          fontSize: "54px",
+          fontSize: "84px",
           fontWeight: "bold",
+          color: "black",
+          textShadow:
+            "-3px -3px 4px rgba(255, 165, 0, 1), " +
+            "3px -3px 4px rgba(255, 165, 0, 1), " +
+            "-3px 3px 4px rgba(255, 165, 0, 1), " +
+            "3px 3px 4px rgba(255, 165, 0, 1), " +
+            "0 0 15px white",
+          border: "6px solid rgba(255, 165, 0, 0.8)",
+          borderRadius: "12px",
+          outline: "none",
+          boxShadow: "0 0 5px rgba(0, 0, 0, 0.1), 0 0 30px white",
         }}
       >
         STARMORY
@@ -222,12 +236,16 @@ function App() {
             padding: "20px",
             borderRadius: "8px",
             minWidth: "300px",
-          }}
+          }} // Left main block
         >
-          <h2>Mass Calculator (Work Order)</h2>
-          <h3>Enter Mass for Each Ore Type</h3>
+          <h2 style={{ color: "white", marginTop: "20px" }}>
+            Mass Calculator (Work Order)
+          </h2>
+          <h3 style={{ color: "white", marginTop: "20px" }}>
+            Enter Mass for Each Ore Type
+          </h3>
           <h4 style={{ color: "white", marginTop: "20px" }}>
-            Minable Values Refined
+            Estimated Value Of Refined Ores
           </h4>
 
           <div
@@ -309,7 +327,7 @@ function App() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", // Flexible grid layout
-              gap: "100px", // Space between the fields
+              gap: "50px", // Adjusted gap to ensure no overlapping on zoom
               alignItems: "start", // Align labels above inputs
               marginBottom: "20px",
             }}
@@ -469,7 +487,6 @@ function App() {
                   }}
                 >
                   <h3>{order.name}</h3>
-
                   {/* Time Remaining or Work Order Complete */}
                   <p
                     style={{
@@ -512,7 +529,7 @@ function App() {
                     style={{
                       position: "absolute",
                       top: "10px",
-                      right: "70px",
+                      right: "90px",
                       padding: "5px",
                       cursor: "pointer",
                       backgroundColor: "blue",
@@ -534,6 +551,7 @@ function App() {
                       top: "10px",
                       right: "10px",
                       padding: "5px",
+
                       cursor: "pointer",
                       backgroundColor: "green",
                       color: "white",
