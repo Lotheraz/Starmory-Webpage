@@ -17,7 +17,7 @@ export const RockTypesEnum = {
   Corundum: "Corundum",
   Aluminium: "Aluminium",
 };
-
+// Values of the type of mineral per SCU
 export const rockValues = {
   [RockTypesEnum.Quantainium]: 23748,
   [RockTypesEnum.Bexalite]: 7981,
