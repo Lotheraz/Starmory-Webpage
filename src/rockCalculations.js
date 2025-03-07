@@ -38,6 +38,7 @@ export const rockValues = {
   [RockTypesEnum.Aluminium]: 317,
 };
 
+// SCU to Mass ratio
 export const SCU_TO_MASS_FACTOR = 682.25;
 
 export const calculateMassValue = (oreMasses, workOrderFee) => {
